@@ -1,12 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy
 {
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private int spawnCount = 1;
+        [FormerlySerializedAs("distance")] [SerializeField] private float radius = 3f;
 
         private Transform _playerTransform;
         
@@ -15,13 +17,6 @@ namespace Enemy
             _playerTransform = GameObject.FindWithTag("Player").transform;
             StartCoroutine(SpawnEnemyCoroutine());
         }
-
-        public void Update()
-        {
-            
-        }
-
-        
         
         private IEnumerator SpawnEnemyCoroutine()
         {
@@ -29,10 +24,17 @@ namespace Enemy
             {
                 yield return new WaitForSeconds(3f);
                 var playerPosition = _playerTransform.position;                
-                var westEnemy = Instantiate(enemyPrefab,  playerPosition + new Vector3(-5, 0, 0), Quaternion.identity);
-                var eastEnemy = Instantiate(enemyPrefab, playerPosition + new Vector3(5, 0, 0), Quaternion.identity);
-                var northEnemy = Instantiate(enemyPrefab, playerPosition + new Vector3(0, 5, 0), Quaternion.identity);
-                var southEnemy = Instantiate(enemyPrefab, playerPosition + new Vector3(0, -5, 0), Quaternion.identity);
+                
+                for (var i = 0; i < spawnCount; i++)
+                {
+                    var angle = i * Mathf.PI * 2 / spawnCount;
+                    var x = Mathf.Cos(angle) * radius;
+                    var y = Mathf.Sin(angle) * radius;
+                    var pos = playerPosition + new Vector3(x, y, 0);
+                    var angleDegrees = -angle*Mathf.Rad2Deg;
+                    var rot = Quaternion.Euler(0, 0, -angleDegrees);
+                    var enemy = Instantiate(enemyPrefab, pos, rot);
+                }
             }
         }
 
