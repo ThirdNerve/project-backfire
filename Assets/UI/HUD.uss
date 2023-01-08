@@ -1,0 +1,8 @@
+.unity-progress-bar__progress {
+    background-color: green;
+}
+
+.unity-progress-bar__background {
+    background-color: white;
+    border-color: whitesmoke;
+}
