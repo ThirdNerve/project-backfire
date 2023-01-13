@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/UI/HUD.uss?fileID=7433441132597879392&amp;guid=9dbcc5e4692340642abdc7191170cece&amp;type=3#HUD" />
     <ui:VisualElement style="flex-direction: row; align-items: flex-end; flex-grow: 1; flex-shrink: 0;">
         <ui:VisualElement style="flex-shrink: 0; flex-grow: 1; align-items: stretch; justify-content: center; flex-direction: row;">
-            <ui:ProgressBar value="22" title="HP" style="flex-basis: auto; flex-shrink: 0; flex-grow: 0.33;" />
+            <ui:ProgressBar label="health" value="3" title="HP" style="flex-basis: auto; flex-shrink: 0; flex-grow: 0.33;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
