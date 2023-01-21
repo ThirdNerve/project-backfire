@@ -1,5 +1,4 @@
 using UnityEngine;
-using Debug = System.Diagnostics.Debug;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
