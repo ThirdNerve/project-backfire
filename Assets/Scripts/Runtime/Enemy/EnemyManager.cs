@@ -1,16 +1,17 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Debug = System.Diagnostics.Debug;
 
-namespace Enemy
+namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 {
     public class EnemyManager : MonoBehaviour
     {
-        [SerializeField] private GameObject enemyPrefab;
+        [SerializeField] private GameObject? enemyPrefab;
         [SerializeField] private int spawnCount = 1;
         [FormerlySerializedAs("distance")] [SerializeField] private float radius = 3f;
 
-        private Transform _playerTransform;
+        private Transform? _playerTransform;
         
         public void OnEnable()
         {
@@ -20,6 +21,8 @@ namespace Enemy
         
         private IEnumerator SpawnEnemyCoroutine()
         {
+            Debug.Assert(_playerTransform != null, nameof(_playerTransform) + " != null");
+
             while (true)
             {
                 yield return new WaitForSeconds(3f);

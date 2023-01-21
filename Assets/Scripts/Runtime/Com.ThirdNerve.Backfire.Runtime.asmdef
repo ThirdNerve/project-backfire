@@ -1,0 +1,14 @@
+{
+    "name": "Com.ThirdNerve.Backfire.Runtime",
+    "rootNamespace": "Com.ThirdNerve.Backfire",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
