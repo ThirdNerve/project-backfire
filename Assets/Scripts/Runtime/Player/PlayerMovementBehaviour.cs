@@ -10,7 +10,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
         private Rigidbody2D? _rigidbody2D;
         private Vector2 _currentInput;
     
-        private void OnEnable()
+        private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
@@ -22,7 +22,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
         private void FixedUpdate()
         {
-            Debug.Assert(_rigidbody2D != null, nameof(_rigidbody2D) + " != null");
+            Debug.Assert(_rigidbody2D != null, nameof(_rigidbody2D) + " is null");
             
             _rigidbody2D.velocity = _currentInput * (maxSpeed * Time.deltaTime);
         }

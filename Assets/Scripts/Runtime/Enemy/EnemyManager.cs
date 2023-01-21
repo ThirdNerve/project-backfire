@@ -1,28 +1,31 @@
 using UnityEngine;
-using UnityEngine.Serialization;
-using Debug = System.Diagnostics.Debug;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 {
+    [RequireComponent(typeof(TargetBehaviour))]
     public class EnemyManager : MonoBehaviour
     {
         [SerializeField] private GameObject? enemyPrefab;
         [SerializeField] private int spawnCount = 1;
 
-        [FormerlySerializedAs("distance")] [SerializeField]
+        [SerializeField]
         private float radius = 3f;
 
-        private TargetBehaviour _targetBehaviour;
+        private TargetBehaviour? _targetBehaviour;
 
-        public void OnEnable()
+        private void Awake()
         {
             _targetBehaviour = GetComponent<TargetBehaviour>();
+        }
+        
+        private void Start()
+        {
             SpawnEnemies();
         }
 
         private void SpawnEnemies()
         {
-            Debug.Assert(_targetBehaviour.Target != null, nameof(_targetBehaviour.Target) + " != null");
+            Debug.Assert(_targetBehaviour.Target != null, nameof(_targetBehaviour.Target) + " is null");
 
             var playerPosition = _targetBehaviour.Target.position;
 

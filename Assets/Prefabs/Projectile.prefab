@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130169356776371049}
   m_LocalRotation: {x: 0, y: 0, z: 0.92387956, w: 0.38268343}
-  m_LocalPosition: {x: 0.045, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f9ef263156323d4dbaab5a1b41a61e6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.80567217, a: 0.8666667}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 0.8874524, b: 0.24056602, a: 0.8666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2130169357045226311}
   - component: {fileID: 2130169357045226310}
-  - component: {fileID: 7825961756365723642}
+  - component: {fileID: 1727189299253534250}
   - component: {fileID: 7341506573956400195}
   m_Layer: 0
   m_Name: Projectile
@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 2130169357045226307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2130169356776371054}
@@ -140,8 +140,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &7825961756365723642
-CapsuleCollider2D:
+--- !u!58 &1727189299253534250
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -150,12 +150,12 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9, y: 0.45}
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.2
 --- !u!114 &7341506573956400195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108a0b1c26654397a662c0dd9dd19ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 50
-  acceleration: 1
+  maxSpeed: 5
   timeToLive: 5

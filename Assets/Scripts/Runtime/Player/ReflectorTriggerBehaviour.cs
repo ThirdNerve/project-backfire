@@ -1,38 +1,43 @@
-using System;
+using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
     public class ReflectorTriggerBehaviour : MonoBehaviour
     {
-        private Rigidbody2D _player;
+        private Rigidbody2D _playerRigidbody2D;
         private Collider2D _reflectorCollider;
 
-        private void OnEnable()
+        private void Awake()
         {
-            _player = GetComponentInParent<Rigidbody2D>();
+            _playerRigidbody2D = GetComponentInParent<Rigidbody2D>();
             _reflectorCollider = GetComponent<Collider2D>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            var otherRigidbody = other.GetComponent<Rigidbody2D>();
-            if (otherRigidbody is null)
+            var projectile = other.GetComponent<ProjectileBehaviour>();
+            if (projectile is null || projectile.IsReflected)
             {
                 return;
             }
-            
-            var otherVelocity = otherRigidbody.velocity;
-            var playerVelocity = _player.velocity;
 
-            var combinedVelocity = playerVelocity + otherVelocity;
+            ReflectProjectile(projectile);
+        }
+
+        public void ReflectProjectile(ProjectileBehaviour projectile)
+        {
+            var projectileVelocity = projectile.Velocity;
+            var playerVelocity = _playerRigidbody2D.velocity;
+
+            var combinedVelocity = projectileVelocity - playerVelocity;
 
             var reflectorCenter = _reflectorCollider.bounds.center;
-            var reflectorNormal = ((Vector2) reflectorCenter - _player.position).normalized;
-            
-            var reflectedVelocity = Vector2.Reflect(otherVelocity, reflectorNormal);
+            var reflectorNormal = ((Vector2) reflectorCenter - _playerRigidbody2D.position).normalized;
 
-            otherRigidbody.velocity = reflectedVelocity;
+            var reflectedVelocity = Vector2.Reflect(combinedVelocity, reflectorNormal);
+            
+            projectile.Reflect(reflectedVelocity);
         }
     }
 }

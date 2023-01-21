@@ -16,7 +16,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
 
         private static VisualTreeAsset GetVisualTree(string name)
         {
-            var templateContainerPath = $"Assets/{UxmlBasePath}/{name}.uxml";
+            var templateContainerPath = $"Assets/{UxmlBasePath}/{name}/{name}.uxml";
             var visualTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>(templateContainerPath);
             if (visualTreeAsset is null)
             {

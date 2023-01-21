@@ -10,24 +10,31 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
         private Rigidbody2D? _reflectorRigidbody2D;
         private Vector2 _input;
     
-        private void OnEnable()
+        private void Awake()
         {
-            _reflectorDataComponent = GetComponentInChildren<ReflectorDataComponent>() ?? throw new Exception("Fucking thing sucks");
+            _reflectorDataComponent = GetComponentInChildren<ReflectorDataComponent>();
         }
 
         private void Update()
         {
             _input = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
+            if (_input.sqrMagnitude < 0.25)
+            {
+                _reflectorDataComponent.gameObject.SetActive(false);
+                return;
+            }
+
+            if (!_reflectorDataComponent.gameObject.activeSelf)
+            {
+                _reflectorDataComponent.gameObject.SetActive(true);
+            }
             
-            
-            
+
             var angleInRadians = Mathf.Atan2(_input.y, _input.x);
             var angle = angleInRadians * Mathf.Rad2Deg;
-            Debug.Log(_input);
-            Debug.Log(angle);
             var rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             
-            Debug.Assert(_reflectorDataComponent != null, nameof(_reflectorRigidbody2D) + " != null");
+            Debug.Assert(_reflectorDataComponent != null, nameof(_reflectorRigidbody2D) + " is null");
             _reflectorDataComponent.transform.rotation = rotation;
         }
     }

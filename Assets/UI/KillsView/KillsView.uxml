@@ -1,0 +1,5 @@
+﻿<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="./KillsView.uss" />    
+    <ui:TextElement text="Kills: ">        
+    </ui:TextElement>
+</ui:UXML>

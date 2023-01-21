@@ -1,6 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:backfire="Com.ThirdNerve.Backfire.Runtime.UI">
-    <ui:VisualElement name="health-view-container"
+    <ui:VisualElement name="container"
                       style="flex-direction: column; align-items: stretch; min-height: 100%">
+        <backfire:KillsView/>
         <ui:VisualElement style="flex-grow: 1"/>
         <backfire:HealthView/>
     </ui:VisualElement>

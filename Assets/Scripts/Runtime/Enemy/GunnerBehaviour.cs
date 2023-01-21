@@ -9,9 +9,13 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 
         private Rigidbody2D? _rigidbody2D;
 
-        public void OnEnable()
+        private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
+        }
+
+        private void Start()
+        {
             StartCoroutine(FireCoroutine());
         }
 

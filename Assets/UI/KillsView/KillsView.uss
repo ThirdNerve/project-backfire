@@ -1,0 +1,5 @@
+.unity-text-element {
+    background-color: white;
+    border-color: black;
+    color: red;
+}

@@ -1,5 +1,4 @@
 ﻿using Com.ThirdNerve.Backfire.Runtime.Component;
-using Com.ThirdNerve.Backfire.Runtime.Player;
 using JetBrains.Annotations;
 using UnityEngine.UIElements;
 
