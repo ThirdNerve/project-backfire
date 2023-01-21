@@ -20,7 +20,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
             while (true)
             {
                 yield return new WaitForSeconds(1f);
-                Instantiate(projectilePrefab, _rigidbody2D.transform);
+                Instantiate(projectilePrefab, transform.position, transform.rotation);
             }
         }
     }
