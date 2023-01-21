@@ -17,8 +17,8 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player.HUD
 
         private void OnEnable()
         {
-            var menu = GetComponentInChildren<UIDocument>();
-            var root = menu.rootVisualElement;
+            var uiDocument = GetComponentInChildren<UIDocument>();
+            var root = uiDocument.rootVisualElement;
             var healthView = root.Q<HealthView>();
             healthView.Bind(_health);
 
