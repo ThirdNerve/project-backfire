@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Player.HUD
+namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
     public class HUDBehaviour : MonoBehaviour
     {
