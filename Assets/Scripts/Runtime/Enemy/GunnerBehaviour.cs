@@ -7,14 +7,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     {
         [SerializeField] private GameObject? projectilePrefab;
 
-        private Rigidbody2D? _rigidbody2D;
-
-        private void Awake()
-        {
-            _rigidbody2D = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
+        private void OnEnable()
         {
             StartCoroutine(FireCoroutine());
         }

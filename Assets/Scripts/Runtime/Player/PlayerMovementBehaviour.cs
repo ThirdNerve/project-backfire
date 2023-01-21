@@ -22,9 +22,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
         private void FixedUpdate()
         {
-            Debug.Assert(_rigidbody2D != null, nameof(_rigidbody2D) + " is null");
-            
-            _rigidbody2D.velocity = _currentInput * (maxSpeed * Time.deltaTime);
+            _rigidbody2D!.velocity = _currentInput * (maxSpeed * Time.deltaTime);
         }
     }
 }

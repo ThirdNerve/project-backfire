@@ -11,23 +11,15 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
         [SerializeField]
         private float radius = 3f;
 
-        private TargetBehaviour? _targetBehaviour;
-
         private void Awake()
         {
-            _targetBehaviour = GetComponent<TargetBehaviour>();
-        }
-        
-        private void Start()
-        {
-            SpawnEnemies();
+            var targetBehaviour = GetComponent<TargetBehaviour>();
+            targetBehaviour.TargetUpdated += SpawnEnemies;
         }
 
-        private void SpawnEnemies()
+        private void SpawnEnemies(Rigidbody2D target)
         {
-            Debug.Assert(_targetBehaviour.Target != null, nameof(_targetBehaviour.Target) + " is null");
-
-            var playerPosition = _targetBehaviour.Target.position;
+            var playerPosition = target.position;
 
             for (var i = 0; i < spawnCount; i++)
             {

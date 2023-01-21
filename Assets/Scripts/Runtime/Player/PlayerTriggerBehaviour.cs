@@ -5,9 +5,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
     public class PlayerTriggerBehaviour : MonoBehaviour
     {
-        private BoxCollider2D _reflectorCollider;
-        private ReflectorTriggerBehaviour _reflector;
-        private const int backtrackFrameCount = 3;
+        private BoxCollider2D? _reflectorCollider;
+        private ReflectorTriggerBehaviour? _reflector;
+        private const int BacktrackFrameCount = 3;
 
         private void Awake()
         {
@@ -40,7 +40,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             }
 
             var projectileRigidbody = projectile.GetComponent<Rigidbody2D>();
-            var backTrackVector = -projectileRigidbody.velocity * backtrackFrameCount * Time.deltaTime;
+            var backTrackVector = -projectileRigidbody.velocity * BacktrackFrameCount * Time.deltaTime;
 
             if (!IntersectOABB(projectileRigidbody.position, backTrackVector, _reflectorCollider))
             {
@@ -49,13 +49,12 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
             _reflector.ReflectProjectile(projectile);
             return true;
-
         }
 
-        private bool IntersectOABB (Vector2 origin, Vector2 vector, BoxCollider2D box)
+        private bool IntersectOABB(Vector2 origin, Vector2 vector, BoxCollider2D? box)
         {
-            var localOrigin = (Vector2) box.transform.InverseTransformPoint(origin) - box.offset;
-            var localDirection = (Vector2) box.transform.InverseTransformDirection(vector) - box.offset;
+            var localOrigin = (Vector2)box.transform.InverseTransformPoint(origin) - box.offset;
+            var localDirection = (Vector2)box.transform.InverseTransformDirection(vector) - box.offset;
 
             var ray = new Ray(localOrigin, localDirection);
             var bounds = new Bounds(Vector3.zero, box.size);
@@ -69,7 +68,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             {
                 return false;
             }
-            
+
             return Mathf.Pow(distance, 2) <= squaredLength;
         }
     }

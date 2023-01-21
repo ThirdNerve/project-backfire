@@ -18,7 +18,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             _killsComponent = new KillsComponent();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             var uiDocument = GetComponentInChildren<UIDocument>();
             var root = uiDocument.rootVisualElement;
