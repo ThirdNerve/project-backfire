@@ -1,4 +1,5 @@
-﻿using Com.ThirdNerve.Backfire.Runtime.Player;
+﻿using Com.ThirdNerve.Backfire.Runtime.Component;
+using Com.ThirdNerve.Backfire.Runtime.Player;
 using JetBrains.Annotations;
 using UnityEngine.UIElements;
 
@@ -6,15 +7,15 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
 {
     public class HealthView : BaseView<HealthView>
     {
-        public void Bind(Health health)
+        public void Bind(HealthComponent healthComponent)
         {
-            health.HealthUpdated += OnHealthUpdated;
+            healthComponent.HealthUpdated += OnHealthUpdated;
         }
 
-        private void OnHealthUpdated(Health health)
+        private void OnHealthUpdated(HealthComponent healthComponent)
         {
             var progressBar = this.Q<ProgressBar>();
-            progressBar.value = health.Current / (float)Health.Max * 100f;
+            progressBar.value = healthComponent.Current / (float)HealthComponent.Max * 100f;
         }
 
         [UsedImplicitly]

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Player
+namespace Com.ThirdNerve.Backfire.Runtime.Component
 {
-    public class Health
+    public class HealthComponent
     {
         private int _current;
         public static int Max => 3;
@@ -18,6 +18,6 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             }
         }
 
-        public event Action<Health>? HealthUpdated;
+        public event Action<HealthComponent>? HealthUpdated;
     }
 }
