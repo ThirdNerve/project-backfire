@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe145a004cb46de488885e70d26cade0, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1f9ef263156323d4dbaab5a1b41a61e6, type: 3}
+  m_Color: {r: 1, g: 0, b: 0.80567217, a: 0.8666667}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,11 +95,9 @@ GameObject:
   - component: {fileID: 2130169357045226311}
   - component: {fileID: 2130169357045226310}
   - component: {fileID: 7825961756365723642}
-  - component: {fileID: 7463572758668443545}
-  - component: {fileID: -8890766127023874388}
-  - component: {fileID: 5628058555782394375}
+  - component: {fileID: 7341506573956400195}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +156,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.9, y: 0.45}
   m_Direction: 1
---- !u!114 &7463572758668443545
+--- !u!114 &7341506573956400195
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -167,31 +165,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130169357045226307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b721d3bc861a4cdfb6677ef5a540d6e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 108a0b1c26654397a662c0dd9dd19ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8890766127023874388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130169357045226307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 613741c06dcb48ac8f89857d498aae0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5628058555782394375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130169357045226307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a028585b4a344558fa2b3fa5c463155, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2130169357045226307, guid: 57b9509de72d90045982308b02e67fc7, type: 3}
+  maxSpeed: 50
+  acceleration: 1
+  timeToLive: 5

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Debug = System.Diagnostics.Debug;
@@ -9,37 +8,34 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     {
         [SerializeField] private GameObject? enemyPrefab;
         [SerializeField] private int spawnCount = 1;
-        [FormerlySerializedAs("distance")] [SerializeField] private float radius = 3f;
 
-        private Transform? _playerTransform;
-        
+        [FormerlySerializedAs("distance")] [SerializeField]
+        private float radius = 3f;
+
+        private TargetBehaviour _targetBehaviour;
+
         public void OnEnable()
         {
-            _playerTransform = GameObject.FindWithTag("Player").transform;
-            StartCoroutine(SpawnEnemyCoroutine());
+            _targetBehaviour = GetComponent<TargetBehaviour>();
+            SpawnEnemies();
         }
-        
-        private IEnumerator SpawnEnemyCoroutine()
-        {
-            Debug.Assert(_playerTransform != null, nameof(_playerTransform) + " != null");
 
-            while (true)
+        private void SpawnEnemies()
+        {
+            Debug.Assert(_targetBehaviour.Target != null, nameof(_targetBehaviour.Target) + " != null");
+
+            var playerPosition = _targetBehaviour.Target.position;
+
+            for (var i = 0; i < spawnCount; i++)
             {
-                yield return new WaitForSeconds(3f);
-                var playerPosition = _playerTransform.position;                
-                
-                for (var i = 0; i < spawnCount; i++)
-                {
-                    var angle = i * Mathf.PI * 2 / spawnCount;
-                    var x = Mathf.Cos(angle) * radius;
-                    var y = Mathf.Sin(angle) * radius;
-                    var pos = playerPosition + new Vector3(x, y, 0);
-                    var angleDegrees = -angle*Mathf.Rad2Deg;
-                    var rot = Quaternion.Euler(0, 0, -angleDegrees);
-                    var enemy = Instantiate(enemyPrefab, pos, rot);
-                }
+                var angle = i * Mathf.PI * 2 / spawnCount;
+                var x = Mathf.Cos(angle) * radius;
+                var y = Mathf.Sin(angle) * radius;
+                var pos = playerPosition + new Vector3(x, y, 0);
+                var angleDegrees = -angle * Mathf.Rad2Deg;
+                var rot = Quaternion.Euler(0, 0, -angleDegrees);
+                Instantiate(enemyPrefab, pos, rot);
             }
         }
-
     }
 }
