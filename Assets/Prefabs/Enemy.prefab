@@ -170,6 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b721d3bc861a4cdfb6677ef5a540d6e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  desiredDistanceFromTarget: 5
+  distanceThreshold: 0.6
+  maxSpeed: 50
+  acceleration: 4
 --- !u!114 &-8890766127023874388
 MonoBehaviour:
   m_ObjectHideFlags: 0
