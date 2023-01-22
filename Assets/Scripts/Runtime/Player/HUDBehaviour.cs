@@ -29,10 +29,5 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             var healthView = root.Q<HealthView>();
             healthView.Bind(_healthBehaviour);
         }
-
-        public void RegisterKill()
-        {
-            _killCountBehaviour.Current += 1;
-        }
     }
 }

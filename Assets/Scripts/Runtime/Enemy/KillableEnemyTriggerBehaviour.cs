@@ -1,10 +1,8 @@
-using Com.ThirdNerve.Backfire.Runtime.Player;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 {
-    [RequireComponent(typeof(TargetBehaviour))]
     public class KillableEnemyTriggerBehaviour : MonoBehaviour
     {
         private void OnTriggerEnter2D(Collider2D other)
@@ -15,7 +13,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
                 return;
             }
             
-            other.GetComponent<HUDBehaviour>()?.RegisterKill();
+            projectileBehaviour.Owner.RegisterKill();
             Destroy(other.gameObject);
             Destroy(gameObject);
         }

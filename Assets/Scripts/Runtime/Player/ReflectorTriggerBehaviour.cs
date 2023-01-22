@@ -7,11 +7,13 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
     {
         private Rigidbody2D? _playerRigidbody2D;
         private Collider2D? _reflectorCollider;
+        private PlayerBehaviour? _playerBehaviour;
 
         private void Awake()
         {
             _playerRigidbody2D = GetComponentInParent<Rigidbody2D>();
             _reflectorCollider = GetComponent<Collider2D>();
+            _playerBehaviour = GetComponentInParent<PlayerBehaviour>();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -37,7 +39,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
             var reflectedVelocity = Vector2.Reflect(combinedVelocity, reflectorNormal);
             
-            projectile.Reflect(reflectedVelocity);
+            projectile.Reflect(reflectedVelocity, _playerBehaviour);
         }
     }
 }

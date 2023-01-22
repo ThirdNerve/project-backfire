@@ -16,7 +16,8 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
         private void Update()
         {
-            var rotation = Quaternion.identity;
+            Quaternion rotation;
+            
             if (Input.GetJoystickNames().Any())
             {
                 var input = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2"));
