@@ -7,7 +7,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     {
         public Rigidbody2D? Target { get; private set; }
 
-        public void OnEnable()
+        private void OnEnable()
         {
             Target = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
             TargetUpdated?.Invoke(Target);

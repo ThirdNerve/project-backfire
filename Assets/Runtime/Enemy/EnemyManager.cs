@@ -19,7 +19,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
         
         private IEnumerator SpawnEnemies(Rigidbody2D target)
         {
-            while (true)
+            while (target != null)
             {
                 var enemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
                 

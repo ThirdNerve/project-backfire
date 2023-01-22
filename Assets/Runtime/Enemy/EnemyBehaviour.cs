@@ -28,6 +28,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 
         private void FixedUpdate()
         {
+            if (_targetBehaviour!.Target == null)
+            {
+                return;
+            }
+            
             var position = _rigidbody2D!.position;
             var targetPosition = _targetBehaviour!.Target.position;
 
