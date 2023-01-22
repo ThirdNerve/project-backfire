@@ -1,14 +1,13 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Component
+namespace Com.ThirdNerve.Backfire.Runtime.Health
 {
     public class HealthBehaviour : MonoBehaviour
     {
         [SerializeField] private int current;
-        [SerializeField] private int max = 3;
-        [SerializeField] private int min = 0;
+        [SerializeField] private int max;
+        [SerializeField] private int min;
 
         public int Current
         {
@@ -27,10 +26,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Component
             Current -= damage;
             if (Current <= min)
             {
-                Destroy(gameObject);
+                OnDeath?.Invoke();
             }
         }
 
         public event Action<HealthBehaviour>? HealthUpdated;
+        public event Action? OnDeath;
     }
 }

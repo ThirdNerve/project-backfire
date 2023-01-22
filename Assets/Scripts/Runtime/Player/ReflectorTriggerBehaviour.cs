@@ -1,3 +1,4 @@
+using Com.ThirdNerve.Backfire.Runtime.Agent;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 

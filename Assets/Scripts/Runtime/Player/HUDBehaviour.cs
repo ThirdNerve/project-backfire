@@ -1,4 +1,5 @@
-﻿using Com.ThirdNerve.Backfire.Runtime.Component;
+﻿using Com.ThirdNerve.Backfire.Runtime.Health;
+using Com.ThirdNerve.Backfire.Runtime.Stats;
 using Com.ThirdNerve.Backfire.Runtime.UI;
 using UnityEngine;
 using UnityEngine.UIElements;

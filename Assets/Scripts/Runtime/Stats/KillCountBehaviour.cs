@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Component
+namespace Com.ThirdNerve.Backfire.Runtime.Stats
 {
     public class KillCountBehaviour : MonoBehaviour
     {

@@ -1,7 +1,8 @@
-﻿using Com.ThirdNerve.Backfire.Runtime.Component;
+﻿using Com.ThirdNerve.Backfire.Runtime.Player;
+using Com.ThirdNerve.Backfire.Runtime.Stats;
 using UnityEngine;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Player
+namespace Com.ThirdNerve.Backfire.Runtime.Agent
 {
     public class PlayerBehaviour : MonoBehaviour
     {

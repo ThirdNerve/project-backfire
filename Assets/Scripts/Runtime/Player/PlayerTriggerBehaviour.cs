@@ -1,4 +1,4 @@
-using Com.ThirdNerve.Backfire.Runtime.Component;
+using Com.ThirdNerve.Backfire.Runtime.Health;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 
