@@ -1,16 +1,20 @@
+using Com.ThirdNerve.Backfire.Runtime.Component;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
+    [RequireComponent(typeof(HealthBehaviour))]
     public class PlayerTriggerBehaviour : MonoBehaviour
     {
         private BoxCollider2D? _reflectorCollider;
         private ReflectorTriggerBehaviour? _reflector;
         private const int BacktrackFrameCount = 3;
+        private HealthBehaviour _healthBehaviour;
 
         private void Awake()
         {
+            _healthBehaviour = GetComponent<HealthBehaviour>();
             _reflectorCollider = GetComponentInChildren<BoxCollider2D>();
             _reflector = GetComponentInChildren<ReflectorTriggerBehaviour>();
         }
@@ -28,7 +32,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
                 return;
             }
 
-            Destroy(gameObject);
+            _healthBehaviour.Damage(1);
         }
 
         // Sometimes this triggers before the reflector triggers and we die. This is my way of trying to fix it :D
