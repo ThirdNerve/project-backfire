@@ -1,5 +1,4 @@
-﻿using Com.ThirdNerve.Backfire.Runtime.Game;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Health
 {
