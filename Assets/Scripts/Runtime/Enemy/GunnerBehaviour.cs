@@ -6,15 +6,15 @@ using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Enemy
 {
-    [RequireComponent(typeof(PlayerBehaviour))]
+    [RequireComponent(typeof(AgentBehaviour))]
     public class GunnerBehaviour : MonoBehaviour
     {
         [SerializeField] private GameObject? projectilePrefab;
-        private PlayerBehaviour? _playerBehaviour;
+        private AgentBehaviour? _playerBehaviour;
 
         private void Awake()
         {
-            _playerBehaviour = GetComponent<PlayerBehaviour>();
+            _playerBehaviour = GetComponent<AgentBehaviour>();
         }
 
         private void OnEnable()

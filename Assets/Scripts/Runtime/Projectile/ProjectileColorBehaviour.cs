@@ -16,7 +16,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
             _projectileBehaviour.OwnerUpdated += UpdateColor;
         }
 
-        private void UpdateColor(PlayerBehaviour owner)
+        private void UpdateColor(AgentBehaviour owner)
         {
             _spriteRenderer.color = owner.Team switch
             {

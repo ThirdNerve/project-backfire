@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Agent
 {
-    public class PlayerBehaviour : MonoBehaviour
+    public class AgentBehaviour : MonoBehaviour
     {
         [SerializeField] public Team team;
         

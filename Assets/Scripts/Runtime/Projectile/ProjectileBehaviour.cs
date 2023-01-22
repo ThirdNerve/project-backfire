@@ -16,10 +16,10 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
         
         public bool IsReflected { get; private set; }
         public Vector2 Velocity => _rigidbody2D.velocity;
-        public event Action<PlayerBehaviour?>? OwnerUpdated;
+        public event Action<AgentBehaviour?>? OwnerUpdated;
 
-        private PlayerBehaviour? _owner;
-        public PlayerBehaviour? Owner
+        private AgentBehaviour? _owner;
+        public AgentBehaviour? Owner
         {
             get => _owner;
             set
@@ -41,7 +41,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
             Destroy(gameObject, timeToLive);
         }
 
-        public void Reflect(Vector2 reflectedVelocity, PlayerBehaviour? newOwner)
+        public void Reflect(Vector2 reflectedVelocity, AgentBehaviour? newOwner)
         {
             if (Owner.Team == newOwner.Team)
             {
