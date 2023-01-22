@@ -30,7 +30,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
             }
         }
 
-        public void Start()
+        public void StartGame()
         {
             GameState = GameState.Started;
         }
