@@ -21,13 +21,19 @@ namespace Com.ThirdNerve.Backfire.Runtime.Health
 
         public int Max => max;
 
-        public void Damage(int damage)
+        /**
+         * <returns>true if the target was destroyed.</returns>
+         */
+        public bool Damage(int damage)
         {
             Current -= damage;
-            if (Current <= min)
+            if (Current > min)
             {
-                OnDeath?.Invoke();
+                return false;
             }
+            
+            OnDeath?.Invoke();
+            return true;
         }
 
         public event Action<HealthBehaviour>? HealthUpdated;
