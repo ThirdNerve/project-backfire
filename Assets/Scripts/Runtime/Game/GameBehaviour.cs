@@ -42,6 +42,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
             Time.timeScale = 0;
         }
 
+        public void Fail()
+        {
+            GameState = GameState.Failed;
+        }
+
         public event Action<GameState>? OnGameStateUpdated;
     }
 }

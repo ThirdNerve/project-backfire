@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:backfire="Com.ThirdNerve.Backfire.Runtime.UI">
-    <Style src="./Menu.uss" />
+    <Style src="./PauseMenu.uss" />
     
     <ui:VisualElement name="container" class="container">
         <ui:VisualElement style="flex-grow: 0.25"/>
         <ui:VisualElement name="list-container" class="list-container">
-            <ui:TextElement text="Continue" class="menu-item"/>
+            <ui:TextElement text="Retry" class="menu-item"/>
             <ui:TextElement text="Quit" class="menu-item"/>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0.25"/>

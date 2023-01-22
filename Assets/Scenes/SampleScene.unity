@@ -261,7 +261,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1129614782}
   - component: {fileID: 1129614781}
-  - component: {fileID: 1129614784}
   - component: {fileID: 1129614783}
   m_Layer: 0
   m_Name: Pause Menu
@@ -313,18 +312,69 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bab9a7a94257452aaea78953364d1791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1129614784
+  _gameBehaviour: {fileID: 920591320}
+--- !u!1 &1130908603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130908607}
+  - component: {fileID: 1130908606}
+  - component: {fileID: 1130908608}
+  m_Layer: 0
+  m_Name: Failed Menu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1130908606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1129614780}
-  m_Enabled: 1
+  m_GameObject: {fileID: 1130908603}
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec6e08d68e254c3496225d7e6f3677fd, type: 3}
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 661e7dcf2dfc75b44b2a1243efacc762, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 47574c0429c64f069b0abdb36351fee9, type: 3}
+  m_SortingOrder: 0
+--- !u!4 &1130908607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130908603}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0033437, y: 0.4446378, z: 0.02585234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130908608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130908603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9571967a3e9c4da489685a87053a10f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameBehaviour: {fileID: 920591320}
 --- !u!1 &1483436857
 GameObject:
   m_ObjectHideFlags: 0
@@ -394,6 +444,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1741732679646032334, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
+      propertyPath: _gameBehaviour
+      value: 
+      objectReference: {fileID: 920591320}
     - target: {fileID: 5252206246644440710, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
       propertyPath: m_RootOrder
       value: 1
