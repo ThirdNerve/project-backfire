@@ -5,7 +5,7 @@
         <ui:VisualElement style="flex-grow: 0.25"/>
         <ui:VisualElement name="list-container" class="list-container">
             <ui:Button name="start" text="Start" class="menu-item"/>
-            <ui:TextElement name="quit" text="Quit" class="menu-item"/>
+            <ui:Button name="quit" text="Quit" class="menu-item"/>
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 0.25"/>
     </ui:VisualElement>
