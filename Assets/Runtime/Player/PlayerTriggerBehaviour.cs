@@ -37,6 +37,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             }
 
             _healthBehaviour.Damage(projectileBehaviour.Damage);
+            Destroy(other);
         }
 
         // Sometimes this triggers before the reflector triggers and we die. This is my way of trying to fix it :D
