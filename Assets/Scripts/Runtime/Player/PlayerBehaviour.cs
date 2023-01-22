@@ -13,6 +13,12 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
         {
             _killCountBehaviour = GetComponent<KillCountBehaviour>();
         }
+
+        public Team Team
+        {
+            get => team;
+            set => team = value;
+        }
         
         public void RegisterKill()
         {
@@ -20,12 +26,6 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             {
                 _killCountBehaviour.Current += 1;
             }
-        }
-        
-        public enum Team
-        {
-            Player,
-            AI
         }
     }
 }

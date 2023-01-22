@@ -8,6 +8,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
     {
         public void Bind(KillCountBehaviour killCountBehaviour)
         {
+            OnKillsUpdated(killCountBehaviour);
             killCountBehaviour.KillsUpdated += OnKillsUpdated;
         }
 

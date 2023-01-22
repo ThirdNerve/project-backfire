@@ -1,4 +1,5 @@
-﻿using Com.ThirdNerve.Backfire.Runtime.Player;
+﻿using System;
+using Com.ThirdNerve.Backfire.Runtime.Player;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Projectile
@@ -14,7 +15,18 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
         
         public bool IsReflected { get; private set; }
         public Vector2 Velocity => _rigidbody2D.velocity;
-        public PlayerBehaviour Owner;
+        public event Action<PlayerBehaviour?>? OwnerUpdated;
+
+        private PlayerBehaviour? _owner;
+        public PlayerBehaviour? Owner
+        {
+            get => _owner;
+            set
+            {
+                _owner = value;
+                OwnerUpdated?.Invoke(value);
+            }
+        }
 
         private void Awake()
         {
@@ -28,9 +40,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
             Destroy(gameObject, timeToLive);
         }
 
-        public void Reflect(Vector2 reflectedVelocity, PlayerBehaviour newOwner)
+        public void Reflect(Vector2 reflectedVelocity, PlayerBehaviour? newOwner)
         {
-            if (IsReflected)
+            if (Owner.Team == newOwner.Team)
             {
                 return;
             }
