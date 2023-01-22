@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Com.ThirdNerve.Backfire.Runtime.Health
 {
     [RequireComponent(typeof(HealthBehaviour))]
-    public class DeathBehaviour : MonoBehaviour
+    public class DestroyOnDeathBehaviour : MonoBehaviour
     {
         [SerializeField] private GameBehaviour? _gameBehaviour;
         
