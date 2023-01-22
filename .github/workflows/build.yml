@@ -9,13 +9,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Cache
         uses: actions/cache@v3
         with:
           path: Library
           key:
-            Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+            Library-${{ hashFiles('Assets/**', 'Packages/**',
+            'ProjectSettings/**') }}
           restore-keys: |
             Library-
 
