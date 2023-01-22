@@ -1,5 +1,6 @@
 .unity-text-element {
-    background-color: white;
     border-color: black;
     color: red;
+    margin-top: 32px;
+    margin-left: 32px;
 }
