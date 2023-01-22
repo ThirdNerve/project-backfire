@@ -5,13 +5,13 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
 {
     public class GameBehaviour : MonoBehaviour
     {
-        private GameState _gameState = GameState.Stopped;
+        [SerializeField] private GameState gameState = GameState.Stopped;
         public GameState GameState
         {
-            get => _gameState;
+            get => gameState;
             private set
             {
-                _gameState = value;
+                gameState = value;
                 GameStateUpdated?.Invoke(value);
             }
         }
@@ -20,7 +20,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
         {
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
             
-            if (_gameState == GameState.Running)
+            if (gameState == GameState.Running)
             {
                 Pause();
             }

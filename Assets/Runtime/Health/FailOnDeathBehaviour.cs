@@ -1,12 +1,13 @@
 ﻿using Com.ThirdNerve.Backfire.Runtime.Game;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Health
 {
     [RequireComponent(typeof(HealthBehaviour))]
     public class FailOnDeathBehaviour : MonoBehaviour
     {
-        [SerializeField] private GameBehaviour? _gameBehaviour;
+        public GameBehaviour? gameBehaviour;
         
         private void Awake()
         {
@@ -16,7 +17,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Health
 
         private void OnDeath()
         {
-            _gameBehaviour.Fail();
+            gameBehaviour.Fail();
         }
     }
 }

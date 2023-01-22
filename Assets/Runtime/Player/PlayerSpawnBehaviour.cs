@@ -1,4 +1,5 @@
 ﻿using Com.ThirdNerve.Backfire.Runtime.Game;
+using Com.ThirdNerve.Backfire.Runtime.Health;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
@@ -20,7 +21,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
                 return;
             }
 
-            Instantiate(_playerPrefab);
+            var player = Instantiate(_playerPrefab);
+            var failOnDeathBehaviour = player.GetComponent<FailOnDeathBehaviour>();
+            failOnDeathBehaviour.gameBehaviour = _gameBehaviour;
         }
     }
 }
