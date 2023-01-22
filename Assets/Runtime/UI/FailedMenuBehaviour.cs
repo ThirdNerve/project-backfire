@@ -13,10 +13,10 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
         private void Awake()
         {
             _menuDocument = GetComponent<UIDocument>();
-            _gameBehaviour.OnGameStateUpdated += OnGameStateUpdated;
+            _gameBehaviour.GameStateUpdated += GameStateUpdated;
         }
 
-        private void OnGameStateUpdated(GameState gameState)
+        private void GameStateUpdated(GameState gameState)
         {
             if (gameState == GameState.Failed)
             {

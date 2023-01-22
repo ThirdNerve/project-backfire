@@ -2,8 +2,10 @@
 {
     public enum GameState
     {
+        Started,
         Running,
         Paused,
-        Failed
+        Failed,
+        Stopped
     }
 }

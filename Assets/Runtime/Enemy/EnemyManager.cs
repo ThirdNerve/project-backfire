@@ -10,11 +10,12 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
         [SerializeField] private GameObject[]? enemyPrefabs;
         [SerializeField] private int spawnCount = 1;
         [SerializeField] private float radius = 3f;
+        private TargetBehaviour? _targetBehaviour;
 
         private void Awake()
         {
-            var targetBehaviour = GetComponent<TargetBehaviour>();
-            targetBehaviour.TargetUpdated += (target) => StartCoroutine(SpawnEnemies(target));
+            _targetBehaviour = GetComponent<TargetBehaviour>();
+            _targetBehaviour.TargetUpdated += (target) => StartCoroutine(SpawnEnemies(target));
         }
         
         private IEnumerator SpawnEnemies(Rigidbody2D target)

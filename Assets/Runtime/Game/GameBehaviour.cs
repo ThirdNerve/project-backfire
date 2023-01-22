@@ -5,14 +5,14 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
 {
     public class GameBehaviour : MonoBehaviour
     {
-        private GameState _gameState = GameState.Running;
+        private GameState _gameState = GameState.Stopped;
         public GameState GameState
         {
             get => _gameState;
             private set
             {
                 _gameState = value;
-                OnGameStateUpdated?.Invoke(value);
+                GameStateUpdated?.Invoke(value);
             }
         }
         
@@ -28,6 +28,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
             {
                 Play();
             }
+        }
+
+        public void Start()
+        {
+            GameState = GameState.Started;
         }
 
         private void Play()
@@ -47,6 +52,6 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
             GameState = GameState.Failed;
         }
 
-        public event Action<GameState>? OnGameStateUpdated;
+        public event Action<GameState>? GameStateUpdated;
     }
 }
