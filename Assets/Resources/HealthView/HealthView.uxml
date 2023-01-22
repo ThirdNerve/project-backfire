@@ -1,8 +1,7 @@
 ﻿<ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="./HealthView.uss" />
     
-    <ui:VisualElement
-            style="flex-shrink: 0; flex-grow: 1; align-items: stretch; justify-content: center; flex-direction: row;">
-        <ui:ProgressBar label="health" value="33" title="HP" style="flex-basis: auto; flex-shrink: 0; flex-grow: 0.33;"/>
+    <ui:VisualElement class="container">
+        <ui:ProgressBar label="health" value="100" class="health-bar"/>
     </ui:VisualElement>
 </ui:UXML>

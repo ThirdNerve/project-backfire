@@ -8,9 +8,10 @@
 .list-container {
     flex-direction: column;
     flex-grow: 1;
-    background-color: red;
     width: 50%;
     align-self: center;
+    background-color: red;
+    border-radius: 3px;
 }
 
 .menu-item {

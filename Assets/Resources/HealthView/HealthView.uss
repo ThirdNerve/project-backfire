@@ -5,4 +5,19 @@
 .unity-progress-bar__background {
     background-color: white;
     border-color: whitesmoke;
+    border-radius: 3px;
+}
+
+.container {
+    flex-shrink: 0;
+    flex-grow: 1;
+    align-items: stretch;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.health-bar {
+    flex-basis: auto;
+    flex-shrink: 0;
+    flex-grow: 0.33;
 }
