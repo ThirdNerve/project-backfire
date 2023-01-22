@@ -6,10 +6,21 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     public class TargetBehaviour : MonoBehaviour
     {
         public Rigidbody2D? Target { get; private set; }
-
-        private void OnEnable()
+        
+        private void Update()
         {
-            Target = GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>();
+            if (Target != null)
+            {
+                return;
+            }
+
+            var foundTarget = GameObject.FindWithTag("Player");
+            if (foundTarget == null)
+            {
+                return;
+            }
+            
+            Target = foundTarget.GetComponent<Rigidbody2D>();
             TargetUpdated?.Invoke(Target);
         }
 

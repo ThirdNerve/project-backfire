@@ -26,6 +26,12 @@ namespace Com.ThirdNerve.Backfire.Runtime.Health
          */
         public bool Damage(int damage)
         {
+            // Can't die if you're already dead!
+            if (Current <= 0)
+            {
+                return false;
+            }
+            
             Current -= damage;
             if (Current > min)
             {

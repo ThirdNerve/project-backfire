@@ -1,5 +1,4 @@
-﻿using System;
-using Com.ThirdNerve.Backfire.Runtime.Game;
+﻿using Com.ThirdNerve.Backfire.Runtime.Game;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -14,18 +13,12 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
         private void Awake()
         {
             _menuDocument = GetComponent<UIDocument>();
-            _gameBehaviour.OnGameStateUpdated += OnGameStateUpdated;
+            _gameBehaviour.GameStateUpdated += GameStateUpdated;
         }
 
-        private void OnGameStateUpdated(GameState gameState)
+        private void GameStateUpdated(GameState gameState)
         {
-            _menuDocument.enabled = gameState switch
-            {
-                GameState.Running => false,
-                GameState.Paused => true,
-                GameState.Failed => false,
-                _ => throw new ArgumentOutOfRangeException(nameof(gameState), gameState, null)
-            };
+            _menuDocument.enabled = gameState == GameState.Paused;
         }
     }
 }

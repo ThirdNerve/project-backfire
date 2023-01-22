@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using Com.ThirdNerve.Backfire.Runtime.Agent;
-using Com.ThirdNerve.Backfire.Runtime.Player;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
 
