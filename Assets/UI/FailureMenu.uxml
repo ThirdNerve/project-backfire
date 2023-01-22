@@ -2,11 +2,9 @@
     <Style src="./FailureMenu.uss" />
     
     <ui:VisualElement name="container" class="container">
-        <ui:VisualElement style="flex-grow: 0.25"/>
         <ui:VisualElement name="list-container" class="list-container">
             <ui:TextElement text="Retry" class="menu-item"/>
             <ui:TextElement text="Quit" class="menu-item"/>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 0.25"/>
     </ui:VisualElement>
 </ui:UXML>

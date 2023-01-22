@@ -3,6 +3,7 @@
     background-color: rgba(137, 178, 255, 0.51);
     width: 100%;
     height: 100%;
+    justify-content: center;
 }
 
 .list-container {
