@@ -1,8 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Component
 {
-    public class HealthComponent
+    public class HealthBehaviour : MonoBehaviour
     {
         private int _current;
         public static int Max => 3;
@@ -18,6 +19,6 @@ namespace Com.ThirdNerve.Backfire.Runtime.Component
             }
         }
 
-        public event Action<HealthComponent>? HealthUpdated;
+        public event Action<HealthBehaviour>? HealthUpdated;
     }
 }

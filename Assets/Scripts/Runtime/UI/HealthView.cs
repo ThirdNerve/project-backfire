@@ -6,15 +6,15 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
 {
     public class HealthView : BaseView<HealthView>
     {
-        public void Bind(HealthComponent healthComponent)
+        public void Bind(HealthBehaviour healthBehaviour)
         {
-            healthComponent.HealthUpdated += OnHealthUpdated;
+            healthBehaviour.HealthUpdated += OnHealthUpdated;
         }
 
-        private void OnHealthUpdated(HealthComponent healthComponent)
+        private void OnHealthUpdated(HealthBehaviour healthBehaviour)
         {
             var progressBar = this.Q<ProgressBar>();
-            progressBar.value = healthComponent.Current / (float)HealthComponent.Max * 100f;
+            progressBar.value = healthBehaviour.Current / (float)HealthBehaviour.Max * 100f;
         }
 
         [UsedImplicitly]

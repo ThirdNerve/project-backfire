@@ -1,21 +1,21 @@
-﻿using System.Collections;
-using Com.ThirdNerve.Backfire.Runtime.Component;
+﻿using Com.ThirdNerve.Backfire.Runtime.Component;
 using Com.ThirdNerve.Backfire.Runtime.UI;
 using UnityEngine;
 using UnityEngine.UIElements;
-using Random = UnityEngine.Random;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
 {
+    [RequireComponent(typeof(HealthBehaviour))]
+    [RequireComponent(typeof(KillCountBehaviour))]
     public class HUDBehaviour : MonoBehaviour
     {
-        private readonly HealthComponent _healthComponent;
-        private readonly KillsComponent _killsComponent;
+        private HealthBehaviour? _healthBehaviour;
+        private KillCountBehaviour? _killCountBehaviour;
 
-        public HUDBehaviour()
+        private void Awake()
         {
-            _healthComponent = new HealthComponent();
-            _killsComponent = new KillsComponent();
+            _healthBehaviour = GetComponent<HealthBehaviour>();
+            _killCountBehaviour = GetComponent<KillCountBehaviour>();
         }
 
         private void OnEnable()
@@ -24,26 +24,15 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             var root = uiDocument.rootVisualElement;
 
             var killsView = root.Q<KillsView>();
-            killsView.Bind(_killsComponent);
+            killsView.Bind(_killCountBehaviour);
             
             var healthView = root.Q<HealthView>();
-            healthView.Bind(_healthComponent);
-
-            StartCoroutine(RandomHealth());
+            healthView.Bind(_healthBehaviour);
         }
 
         public void RegisterKill()
         {
-            _killsComponent.Current += 1;
-        }
-        
-        private IEnumerator RandomHealth()
-        {
-            while (true)
-            {
-                _healthComponent.Current = (int)(Random.value * HealthComponent.Max);
-                yield return new WaitForSeconds(1f);
-            }
+            _killCountBehaviour.Current += 1;
         }
     }
 }

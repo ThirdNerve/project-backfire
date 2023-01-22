@@ -1,8 +1,9 @@
 using System;
+using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Component
 {
-    public class KillsComponent
+    public class KillCountBehaviour : MonoBehaviour
     {
         private int _current;
 
@@ -16,6 +17,6 @@ namespace Com.ThirdNerve.Backfire.Runtime.Component
             }
         }
 
-        public event Action<KillsComponent>? KillsUpdated;
+        public event Action<KillCountBehaviour>? KillsUpdated;
     }
 }

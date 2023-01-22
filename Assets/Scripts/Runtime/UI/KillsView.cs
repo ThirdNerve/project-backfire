@@ -6,15 +6,15 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI
 {
     public class KillsView : BaseView<KillsView>
     {
-        public void Bind(KillsComponent killsComponent)
+        public void Bind(KillCountBehaviour killCountBehaviour)
         {
-            killsComponent.KillsUpdated += OnKillsUpdated;
+            killCountBehaviour.KillsUpdated += OnKillsUpdated;
         }
 
-        private void OnKillsUpdated(KillsComponent killsComponent)
+        private void OnKillsUpdated(KillCountBehaviour killCountBehaviour)
         {
             var textElement = this.Q<TextElement>();
-            textElement.text = $"Kills: {killsComponent.Current.ToString()}";
+            textElement.text = $"Kills: {killCountBehaviour.Current.ToString()}";
         }
 
         [UsedImplicitly]
