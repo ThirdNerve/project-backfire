@@ -936,7 +936,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2130169357045226307, guid: 5adf850b771d8e74cbaee2e99b5a821c, type: 3}
   - {fileID: 2130169357045226307, guid: 46388138031bef14990e1170541301c9, type: 3}
-  spawnCount: 5
+  spawnCount: 1
   radius: 6
 --- !u!4 &1483436859
 Transform:
@@ -977,17 +977,13 @@ PrefabInstance:
       propertyPath: _gameBehaviour
       value: 
       objectReference: {fileID: 920591320}
-    - target: {fileID: 1741732679646032334, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
-      propertyPath: _gameBehaviour
-      value: 
-      objectReference: {fileID: 920591320}
     - target: {fileID: 5252206246644440710, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5252206246644440710, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5252206246644440710, guid: 5643c7a1817d5aa41bec2b93eb4fad14, type: 3}
       propertyPath: m_LocalPosition.y
