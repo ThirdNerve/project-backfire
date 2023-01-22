@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:backfire="Com.ThirdNerve.Backfire.Runtime.UI">
-    <Style src="./PauseMenu.uss" />
+    <Style src="./FailureMenu.uss" />
     
     <ui:VisualElement name="container" class="container">
         <ui:VisualElement style="flex-grow: 0.25"/>
