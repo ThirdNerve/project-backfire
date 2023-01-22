@@ -1,6 +1,5 @@
 ﻿using System;
 using Com.ThirdNerve.Backfire.Runtime.Agent;
-using Com.ThirdNerve.Backfire.Runtime.Player;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Projectile
@@ -8,6 +7,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
     [RequireComponent(typeof(Rigidbody2D))]
     public class ProjectileBehaviour : MonoBehaviour
     {
+        [SerializeField] private int damage;
         [SerializeField] private float maxSpeed = 50f;
         [SerializeField] private float timeToLive = 5f;
 
@@ -16,6 +16,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
         
         public bool IsReflected { get; private set; }
         public Vector2 Velocity => _rigidbody2D.velocity;
+        public int Damage => damage;
         public event Action<AgentBehaviour?>? OwnerUpdated;
 
         private AgentBehaviour? _owner;
