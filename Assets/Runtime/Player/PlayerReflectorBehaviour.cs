@@ -1,4 +1,3 @@
-using System;
 using Com.ThirdNerve.Backfire.Runtime.Game;
 using Com.ThirdNerve.Backfire.Runtime.Input;
 using UnityEngine;
