@@ -1,5 +1,4 @@
 using Com.ThirdNerve.Backfire.Runtime.Game;
-using Com.ThirdNerve.Backfire.Runtime.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,39 +8,28 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
     public class PlayerMovementBehaviour : MonoBehaviour
     {
         public GameBehaviour? gameBehaviour;
-
-        [SerializeField] private float maxSpeed = 300f;
-    
         private Rigidbody2D? _rigidbody2D;
+        private PlayerInputBehaviour? _playerInputBehaviour;
+        [SerializeField] private float maxSpeed = 300f;
+
         private Vector2 _currentInput;
-        private InputActions? _inputActions;
 
         private void Awake()
         {
-            _inputActions = new InputActions();
+            _playerInputBehaviour = GetComponent<PlayerInputBehaviour>();
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
-
-        private void OnEnable()
-        {
-            _inputActions.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _inputActions.Disable();
-        }
-
+        
         private void Update()
         {
-            _inputActions.Player.Pause.performed += OnPausePerformed;
+            _playerInputBehaviour.InputActions.Player.Pause.performed += OnPausePerformed;
             
             if (gameBehaviour.GameState != GameState.Running)
             {
                 return;
             }
 
-            _currentInput = _inputActions.Player.Move.ReadValue<Vector2>();
+            _currentInput = _playerInputBehaviour.InputActions.Player.Move.ReadValue<Vector2>();
         }
 
         private void OnPausePerformed(InputAction.CallbackContext callbackContext)

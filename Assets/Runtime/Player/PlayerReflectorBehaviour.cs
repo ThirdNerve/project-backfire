@@ -1,5 +1,4 @@
 using Com.ThirdNerve.Backfire.Runtime.Game;
-using Com.ThirdNerve.Backfire.Runtime.Input;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
@@ -9,23 +8,13 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
         public GameBehaviour? gameBehaviour;
         private ReflectorDataComponent? _reflectorDataComponent;
         private Rigidbody2D? _playerRigidbody2D;
-        private InputActions? _inputActions;
+        private PlayerInputBehaviour? _playerInputBehaviour;
 
         private void Awake()
         {
-            _inputActions = new InputActions();
             _playerRigidbody2D = GetComponent<Rigidbody2D>();
+            _playerInputBehaviour = GetComponent<PlayerInputBehaviour>();
             _reflectorDataComponent = GetComponentInChildren<ReflectorDataComponent>();
-        }
-
-        private void OnEnable()
-        {
-            _inputActions.Enable();
-        }
-
-        private void OnDisable()
-        {
-            _inputActions.Disable();
         }
 
         private void Update()
@@ -37,9 +26,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
             Quaternion rotation;
 
-            if (_inputActions.Player.Look.inProgress)
+            if (_playerInputBehaviour.InputActions.Player.Look.inProgress)
             {
-                var input = _inputActions.Player.Look.ReadValue<Vector2>();
+                var input = _playerInputBehaviour.InputActions.Player.Look.ReadValue<Vector2>();
                 if (input.sqrMagnitude < 0.25)
                 {
                     _reflectorDataComponent.gameObject.SetActive(false);
@@ -63,7 +52,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
                 }
 
                 var mouseWorldPosition =
-                    Camera.main.ScreenToWorldPoint(_inputActions.Player.LookMouse.ReadValue<Vector2>());
+                    Camera.main.ScreenToWorldPoint(_playerInputBehaviour.InputActions.Player.LookMouse.ReadValue<Vector2>());
                 var mouseWorldPosition2d = new Vector2(mouseWorldPosition.x, mouseWorldPosition.y);
 
                 var angle = Vector2.SignedAngle(mouseWorldPosition2d - _playerRigidbody2D.position, Vector2.right);
