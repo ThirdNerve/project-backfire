@@ -10,15 +10,27 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     {
         [SerializeField] private GameObject? projectilePrefab;
         private AgentBehaviour? _playerBehaviour;
+        private TargetBehaviour? _targetBehaviour;
+        private IEnumerator _fireCoroutine;
 
         private void Awake()
         {
             _playerBehaviour = GetComponent<AgentBehaviour>();
+            _targetBehaviour = GetComponent<TargetBehaviour>();
+            _targetBehaviour.TargetChanged += OnTargetChanged;
         }
 
-        private void OnEnable()
+        private void OnTargetChanged(TargetableBehaviour? targetableBehaviour)
         {
-            StartCoroutine(FireCoroutine());
+            if (targetableBehaviour != null)
+            {
+                _fireCoroutine = FireCoroutine();
+                StartCoroutine(_fireCoroutine);
+            }
+            else
+            {
+                StopCoroutine(_fireCoroutine);
+            }
         }
 
         private IEnumerator FireCoroutine()

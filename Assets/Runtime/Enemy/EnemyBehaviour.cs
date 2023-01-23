@@ -34,7 +34,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
             }
             
             var position = _rigidbody2D!.position;
-            var targetPosition = _targetBehaviour!.Target.position;
+            var targetPosition = _targetBehaviour!.Target.Rigidbody2D.position;
 
             var distanceToTarget = Vector2.Distance(position, targetPosition);
             var vectorToTarget = (targetPosition - _rigidbody2D.position).normalized;

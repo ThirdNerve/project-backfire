@@ -8,6 +8,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
     {
         [SerializeField] private GameBehaviour? _gameBehaviour;
         [SerializeField] private GameObject? _playerPrefab;
+        private GameObject? _player;
 
         private void Awake()
         {
@@ -16,15 +17,18 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
         private void OnGameStateUpdated(GameState gameState)
         {
-            if (gameState != GameState.Started)
+            switch (gameState)
             {
-                return;
+                case GameState.Started:
+                    _player = Instantiate(_playerPrefab);
+                    _player.GetComponent<FailOnDeathBehaviour>().gameBehaviour = _gameBehaviour;
+                    _player.GetComponent<PlayerMovementBehaviour>().gameBehaviour = _gameBehaviour;
+                    _player.GetComponent<PlayerReflectorBehaviour>().gameBehaviour = _gameBehaviour;
+                    break;
+                case GameState.Stopped:
+                    Destroy(_player);
+                    break;
             }
-
-            var player = Instantiate(_playerPrefab);
-            player.GetComponent<FailOnDeathBehaviour>().gameBehaviour = _gameBehaviour;
-            player.GetComponent<PlayerMovementBehaviour>().gameBehaviour = _gameBehaviour;
-            player.GetComponent<PlayerReflectorBehaviour>().gameBehaviour = _gameBehaviour;
         }
     }
 }
