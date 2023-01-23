@@ -22,8 +22,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             }
 
             var player = Instantiate(_playerPrefab);
-            var failOnDeathBehaviour = player.GetComponent<FailOnDeathBehaviour>();
-            failOnDeathBehaviour.gameBehaviour = _gameBehaviour;
+            player.GetComponent<FailOnDeathBehaviour>().gameBehaviour = _gameBehaviour;
+            player.GetComponent<PlayerMovementBehaviour>().gameBehaviour = _gameBehaviour;
+            player.GetComponent<PlayerReflectorBehaviour>().gameBehaviour = _gameBehaviour;
         }
     }
 }

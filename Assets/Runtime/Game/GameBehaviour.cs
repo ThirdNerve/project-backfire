@@ -15,36 +15,29 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
                 GameStateUpdated?.Invoke(value);
             }
         }
-        
-        private void Update()
-        {
-            if (!Input.GetKeyDown(KeyCode.Escape)) return;
-            
-            if (gameState == GameState.Running)
-            {
-                Pause();
-            }
-            else
-            {
-                Play();
-            }
-        }
 
         public void StartGame()
         {
             GameState = GameState.Started;
+            GameState = GameState.Running;
         }
 
-        private void Play()
+        public void Play()
         {
             GameState = GameState.Running;
             Time.timeScale = 1f;
         }
 
-        private void Pause()
+        public void Pause()
         {
             GameState = GameState.Paused;
             Time.timeScale = 0;
+        }
+        
+        public void StopGame()
+        {
+            GameState = GameState.Stopped;
+            Time.timeScale = 1f;
         }
 
         public void Fail()

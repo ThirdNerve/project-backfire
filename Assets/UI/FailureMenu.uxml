@@ -5,7 +5,7 @@
     <ui:VisualElement name="container" class="container">
         <ui:VisualElement name="list-container" class="list-container">
             <ui:Button name="retry" text="Retry" class="menu-item"/>
-            <ui:Button text="Quit" class="menu-item"/>
+            <ui:Button name="quit" text="Quit" class="menu-item"/>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
