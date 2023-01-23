@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Com.ThirdNerve.Backfire.Runtime.Agent;
 using Com.ThirdNerve.Backfire.Runtime.Projectile;
 using UnityEngine;
@@ -18,6 +19,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
             _playerBehaviour = GetComponent<AgentBehaviour>();
             _targetBehaviour = GetComponent<TargetBehaviour>();
             _targetBehaviour.TargetChanged += OnTargetChanged;
+        }
+
+        private void OnDisable()
+        {
+            _targetBehaviour.TargetChanged -= OnTargetChanged;
         }
 
         private void OnTargetChanged(TargetableBehaviour? targetableBehaviour)
