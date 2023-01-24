@@ -2,7 +2,8 @@
   "name": "Com.ThirdNerve.Backfire.Runtime",
   "rootNamespace": "Com.ThirdNerve.Backfire",
   "references": [
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "Unity.RenderPipelines.Universal.Runtime"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
