@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: -8873351495471203407}
   - component: {fileID: 1035111536566262382}
   - component: {fileID: 9028398026444351525}
+  - component: {fileID: 1724775915905283509}
   m_Layer: 0
   m_Name: Big Enemy
   m_TagString: Untagged
@@ -309,5 +310,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67a0e4c760084e5e85b781330925af9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1724775915905283509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130169357045226307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c6aa41db664da5a37c5b1eb614dacd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
