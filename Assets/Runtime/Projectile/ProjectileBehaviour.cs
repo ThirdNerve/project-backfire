@@ -10,6 +10,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
         [SerializeField] private int damage;
         [SerializeField] private float maxSpeed = 50f;
         [SerializeField] private float timeToLive = 5f;
+        [SerializeField] private float mass = 2f;
 
         private Rigidbody2D? _rigidbody2D;
         private SpriteRenderer? _spriteRenderer;
@@ -17,6 +18,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Projectile
         public bool IsReflected { get; private set; }
         public Vector2 Velocity => _rigidbody2D.velocity;
         public int Damage => damage;
+        public float Mass => mass;
         public event Action<AgentBehaviour?>? OwnerUpdated;
 
         private AgentBehaviour? _owner;

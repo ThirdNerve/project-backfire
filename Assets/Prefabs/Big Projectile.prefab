@@ -199,6 +199,7 @@ MonoBehaviour:
   damage: 2
   maxSpeed: 5
   timeToLive: 5
+  mass: 2
 --- !u!114 &4692919326436501945
 MonoBehaviour:
   m_ObjectHideFlags: 0

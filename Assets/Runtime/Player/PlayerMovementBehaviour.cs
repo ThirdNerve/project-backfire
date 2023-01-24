@@ -11,6 +11,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
         private Rigidbody2D? _rigidbody2D;
         private PlayerInputBehaviour? _playerInputBehaviour;
         [SerializeField] private float maxSpeed = 300f;
+        [SerializeField] private float speed = 5f;
 
         private Vector2 _currentInput;
 
@@ -39,7 +40,13 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
 
         private void FixedUpdate()
         {
-            _rigidbody2D!.velocity = _currentInput * (maxSpeed * Time.deltaTime);
+            _rigidbody2D.AddForce(_currentInput * speed);
+
+            if (_rigidbody2D.velocity.magnitude < maxSpeed)
+            {
+                return;
+            }
+            _rigidbody2D!.velocity = _rigidbody2D.velocity.normalized * maxSpeed;
         }
     }
 }

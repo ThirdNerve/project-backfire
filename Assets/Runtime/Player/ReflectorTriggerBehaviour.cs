@@ -41,6 +41,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
             var reflectedVelocity = Vector2.Reflect(combinedVelocity, reflectorNormal);
             
             projectile.Reflect(reflectedVelocity, _playerBehaviour);
+            _playerRigidbody2D.AddForce(-reflectedVelocity * 5f * projectile.Mass);
         }
     }
 }

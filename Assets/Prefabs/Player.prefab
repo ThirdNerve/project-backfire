@@ -522,7 +522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameBehaviour: {fileID: 0}
-  maxSpeed: 200
+  maxSpeed: 6
+  speed: 4
 --- !u!114 &1197583275
 MonoBehaviour:
   m_ObjectHideFlags: 0
