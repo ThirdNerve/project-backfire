@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Com.ThirdNerve.Backfire.Runtime.Agent;
 using UnityEngine;
@@ -13,12 +14,22 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
         [SerializeField] private float radius = 3f;
         private TargetBehaviour? _targetBehaviour;
 
-        private void Awake()
+        private void OnEnable()
         {
             _targetBehaviour = GetComponent<TargetBehaviour>();
-            _targetBehaviour.TargetChanged += (target) => StartCoroutine(SpawnEnemies(target));
+            _targetBehaviour.TargetChanged += StartSpawnEnemies;
         }
-        
+
+        private void OnDisable()
+        {
+            _targetBehaviour.TargetChanged -= StartSpawnEnemies;
+        }
+
+        private void StartSpawnEnemies(TargetableBehaviour? target)
+        {
+            StartCoroutine(SpawnEnemies(target));
+        }
+
         private IEnumerator SpawnEnemies(TargetableBehaviour? targetableBehaviour)
         {
             while (targetableBehaviour != null)

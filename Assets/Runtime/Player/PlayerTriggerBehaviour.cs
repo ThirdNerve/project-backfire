@@ -36,7 +36,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
                 return;
             }
 
-            _healthBehaviour.Damage(projectileBehaviour.Damage);
+            _healthBehaviour.Damage(projectileBehaviour.Damage, projectileBehaviour.Owner);
             Destroy(other.gameObject);
         }
 

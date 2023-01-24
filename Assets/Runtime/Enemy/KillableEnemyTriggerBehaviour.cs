@@ -26,11 +26,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
                 return;
             }
 
-            if (_healthBehaviour.Damage(projectileBehaviour.Damage))
-            {
-                projectileBehaviour.Owner.RegisterKill();
-            }
-            
+            _healthBehaviour.Damage(projectileBehaviour.Damage, projectileBehaviour.Owner);
             Destroy(other.gameObject);
         }
     }

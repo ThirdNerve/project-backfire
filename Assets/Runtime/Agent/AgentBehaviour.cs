@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Agent
 {
+    [RequireComponent(typeof(KillCountBehaviour))]
     public class AgentBehaviour : MonoBehaviour
     {
         [SerializeField] public Team team;

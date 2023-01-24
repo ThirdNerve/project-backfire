@@ -1,8 +1,9 @@
-﻿namespace Com.ThirdNerve.Backfire.Runtime.Player
+﻿namespace Com.ThirdNerve.Backfire.Runtime.Agent
 {
     public enum Team
     {
         Player,
-        AI
+        AI,
+        Terrain
     }
 }

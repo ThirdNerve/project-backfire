@@ -1,4 +1,5 @@
 ﻿using System;
+using Com.ThirdNerve.Backfire.Runtime.Agent;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Health
@@ -20,26 +21,23 @@ namespace Com.ThirdNerve.Backfire.Runtime.Health
         }
 
         public int Max => max;
-
-        /**
-         * <returns>true if the target was destroyed.</returns>
-         */
-        public bool Damage(int damage)
+        
+        public void Damage(int damage, AgentBehaviour agentBehaviour)
         {
             // Can't die if you're already dead!
             if (Current <= 0)
             {
-                return false;
+                return;
             }
             
             Current -= damage;
             if (Current > min)
             {
-                return false;
+                return;
             }
             
+            agentBehaviour.RegisterKill();
             OnDeath?.Invoke();
-            return true;
         }
 
         public event Action<HealthBehaviour>? HealthUpdated;

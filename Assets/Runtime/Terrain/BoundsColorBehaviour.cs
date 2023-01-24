@@ -2,7 +2,7 @@
 using UnityEngine.Rendering.Universal;
 using Random = UnityEngine.Random;
 
-namespace Com.ThirdNerve.Backfire.Runtime.Scenery
+namespace Com.ThirdNerve.Backfire.Runtime.Terrain
 {
     public class BoundsColorBehaviour : MonoBehaviour
     {
