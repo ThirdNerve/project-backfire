@@ -15,7 +15,11 @@ namespace Com.ThirdNerve.Backfire.Runtime.Health
             var otherAgentBehaviour = other.GetComponent<AgentBehaviour>();
             var otherHealthBehaviour = other.GetComponent<HealthBehaviour>();
 
-            if (otherHealthBehaviour == null || otherAgentBehaviour.Team == agentBehaviour.Team)
+            if (otherHealthBehaviour == null)
+            {
+                return;
+            }
+            if (otherAgentBehaviour != null && otherAgentBehaviour.Team == agentBehaviour.Team)
             {
                 return;
             }

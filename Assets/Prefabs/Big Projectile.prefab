@@ -97,6 +97,8 @@ GameObject:
   - component: {fileID: 1727189299253534250}
   - component: {fileID: 7341506573956400195}
   - component: {fileID: 4692919326436501945}
+  - component: {fileID: 5026639513481015107}
+  - component: {fileID: 530816602022807079}
   m_Layer: 0
   m_Name: Big Projectile
   m_TagString: Untagged
@@ -210,3 +212,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 2130169356776371052}
+--- !u!114 &5026639513481015107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130169357045226307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 328e977f12b64186806b195f708f1182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: 1
+  max: 1
+  min: 0
+--- !u!114 &530816602022807079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130169357045226307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67a0e4c760084e5e85b781330925af9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -98,8 +98,7 @@ GameObject:
   - component: {fileID: 7341506573956400195}
   - component: {fileID: 4692919326436501945}
   - component: {fileID: -1136526671138036394}
-  - component: {fileID: -5642881542773716914}
-  - component: {fileID: -2584938622502154043}
+  - component: {fileID: 1595223782774861002}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
@@ -228,7 +227,7 @@ MonoBehaviour:
   current: 1
   max: 1
   min: 0
---- !u!114 &-5642881542773716914
+--- !u!114 &1595223782774861002
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,19 +236,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130169357045226307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c6aa41db664da5a37c5b1eb614dacd, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a0e4c760084e5e85b781330925af9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2584938622502154043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130169357045226307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 698dea8ac5254539a8b50fe2a808468b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team: 1
