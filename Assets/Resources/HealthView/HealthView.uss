@@ -14,7 +14,7 @@
     align-items: stretch;
     justify-content: center;
     flex-direction: row;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .health-bar {
