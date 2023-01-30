@@ -1,3 +1,10 @@
 ﻿.list-container {
     background-color: rgba(255, 0, 0, 0.7);
 }
+
+.kills {
+    -unity-text-align: upper-center;
+    font-size: 36px;
+    color: white;
+    padding-bottom: 36px;
+}

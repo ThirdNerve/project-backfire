@@ -3,6 +3,8 @@
     <Style src="./FailureMenu.uss" />
     
     <ui:VisualElement name="container" class="container">
+        <ui:TextElement name="kills" class="kills"/>
+        
         <ui:VisualElement name="list-container" class="list-container">
             <ui:Button name="retry" text="Retry" class="menu-item"/>
             <ui:Button name="quit" text="Quit" class="menu-item"/>

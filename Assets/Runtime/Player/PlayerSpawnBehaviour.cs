@@ -1,5 +1,6 @@
 ﻿using Com.ThirdNerve.Backfire.Runtime.Game;
 using Com.ThirdNerve.Backfire.Runtime.Health;
+using Com.ThirdNerve.Backfire.Runtime.Stats;
 using UnityEngine;
 
 namespace Com.ThirdNerve.Backfire.Runtime.Player
@@ -24,6 +25,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Player
                     _player.GetComponent<FailOnDeathBehaviour>().gameBehaviour = _gameBehaviour;
                     _player.GetComponent<PlayerMovementBehaviour>().gameBehaviour = _gameBehaviour;
                     _player.GetComponent<PlayerReflectorBehaviour>().gameBehaviour = _gameBehaviour;
+                    _player.GetComponent<KillCountBehaviour>().gameBehaviour = _gameBehaviour;
                     break;
                 case GameState.Stopped:
                     Destroy(_player);

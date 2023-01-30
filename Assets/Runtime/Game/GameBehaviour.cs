@@ -5,6 +5,8 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
 {
     public class GameBehaviour : MonoBehaviour
     {
+        public int Kills;
+        
         [SerializeField] private GameState gameState = GameState.Stopped;
         public GameState GameState
         {
@@ -37,6 +39,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Game
         public void StopGame()
         {
             GameState = GameState.Stopped;
+            Kills = 0;
             Time.timeScale = 1f;
         }
 

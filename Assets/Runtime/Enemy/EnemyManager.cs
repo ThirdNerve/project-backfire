@@ -62,7 +62,7 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
         
         private void OnGameStateUpdated(GameState gameState)
         {
-            if (gameState == GameState.Stopped)
+            if (gameState == GameState.Started)
             {
                 foreach (var spawnedEnemy in _spawnedEnemies)
                 {

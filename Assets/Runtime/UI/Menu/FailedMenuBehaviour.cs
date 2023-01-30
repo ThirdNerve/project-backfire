@@ -52,6 +52,9 @@ namespace Com.ThirdNerve.Backfire.Runtime.UI.Menu
 
         private void Show()
         {
+            var kills = _root.Q<TextElement>("kills");
+            kills.text = $"Kills: {_gameBehaviour.Kills}";
+
             _root.style.display = DisplayStyle.Flex;
             _retryButton.Focus();
         }
