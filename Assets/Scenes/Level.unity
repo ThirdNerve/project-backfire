@@ -2446,7 +2446,7 @@ GameObject:
   - component: {fileID: 1483436858}
   - component: {fileID: 1483436860}
   m_Layer: 0
-  m_Name: EnemyController
+  m_Name: Enemy Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2464,6 +2464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037673e79bf846dcb41fcc930e06b49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameBehaviour: {fileID: 920591320}
   enemyPrefabs:
   - {fileID: 2130169357045226307, guid: 5adf850b771d8e74cbaee2e99b5a821c, type: 3}
   - {fileID: 2130169357045226307, guid: 46388138031bef14990e1170541301c9, type: 3}
@@ -2557,7 +2558,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 14b1a776792c31a4c8af143ac186ef00, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 30ecd4cca61240c4386c5ff6be64605d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2672,5 +2673,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameBehaviour: {fileID: 920591320}
   _audioSource: {fileID: 1729293551}
-  _menuMusic: {fileID: 8300000, guid: 14b1a776792c31a4c8af143ac186ef00, type: 3}
+  _menuMusic: {fileID: 8300000, guid: 30ecd4cca61240c4386c5ff6be64605d, type: 3}
   _gameMusic: {fileID: 8300000, guid: 34228bc434e7d98499f9fbeb73fb44aa, type: 3}

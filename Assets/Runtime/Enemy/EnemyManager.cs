@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Com.ThirdNerve.Backfire.Runtime.Agent;
+using Com.ThirdNerve.Backfire.Runtime.Game;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,11 +11,18 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
     [RequireComponent(typeof(TargetBehaviour))]
     public class EnemyManager : MonoBehaviour
     {
+        [SerializeField] private GameBehaviour? _gameBehaviour;
         [SerializeField] private GameObject[]? enemyPrefabs;
         [SerializeField] private int spawnCount = 1;
         [SerializeField] private float radius = 3f;
         private TargetBehaviour? _targetBehaviour;
+        private List<GameObject> _spawnedEnemies = new();
 
+        private void Awake()
+        {
+            _gameBehaviour.GameStateUpdated += OnGameStateUpdated;
+        }
+        
         private void OnEnable()
         {
             _targetBehaviour = GetComponent<TargetBehaviour>();
@@ -44,10 +53,21 @@ namespace Com.ThirdNerve.Backfire.Runtime.Enemy
                     var pos = targetableBehaviour.Rigidbody2D.position + new Vector2(x, y);
                     var angleDegrees = -angle * Mathf.Rad2Deg;
                     var rot = Quaternion.Euler(0, 0, -angleDegrees);
-                    Instantiate(enemyPrefab, pos, rot);
+                    _spawnedEnemies.Add(Instantiate(enemyPrefab, pos, rot));
                 }
 
                 yield return new WaitForSeconds(6f);
+            }
+        }
+        
+        private void OnGameStateUpdated(GameState gameState)
+        {
+            if (gameState == GameState.Stopped)
+            {
+                foreach (var spawnedEnemy in _spawnedEnemies)
+                {
+                    Destroy(spawnedEnemy);
+                }                
             }
         }
     }
